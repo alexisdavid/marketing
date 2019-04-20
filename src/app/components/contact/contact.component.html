@@ -1,0 +1,86 @@
+<section class="section section-lg bg-gradient-default">
+  <div class="container pt-lg pb-300">
+    <div class="row text-center justify-content-center">
+      <div class="col-lg-10">
+        <div class="badge badge-circle badge-light mr-3">
+          <i class="fa fa-coffee fa-5x" style="color: white" aria-hidden="true"></i>
+
+        </div>
+        <h2 class="display-3 text-white">Hagamos algo juntos...</h2>
+        <p class="lead">Sentemonos a tomar un cafe mientras nos cuentas tu gran proyecto.</p>
+      </div>
+    </div>
+
+  </div>
+  <!-- SVG separator -->
+  <div class="separator separator-bottom separator-skew zindex-100">
+    <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
+    </svg>
+  </div>
+</section>
+<section class="section section-lg pt-lg-0 section-contact-us">
+  <div class="container">
+    <div class="row justify-content-center mt--300">
+      <div class="col-lg-8">
+        <div class="card bg-gradient-secondary shadow">
+          <div class="card-body p-lg-5">
+            <h4 class="mb-1">Contactanos</h4>
+            <p class="mt-0">Tu proyecto es importante para nosotros.</p>
+            <div class="alert alert-success" role="alert" *ngIf="enviado">
+              <strong>enviado!</strong> nos pondremos en contacto a la brevedad posible!
+            </div>
+
+            <form (ngSubmit)="sendMessage()" #forma="ngForm">
+
+              <div class="form-group mt-5">
+                <div class="input-group input-group-alternative">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-user-run"></i></span>
+                  </div>
+                  <input class="form-control" [(ngModel)]="mensaje.name" minlength="5" name="name" placeholder="Nombre"
+                    type="text" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="input-group input-group-alternative">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                  </div>
+                  <input class="form-control" [(ngModel)]="mensaje.email"
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email" placeholder="Email" type="email"
+                    required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="input-group input-group-alternative">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-phone-square" aria-hidden="true"></i></span>
+                  </div>
+                  <input class="form-control" [(ngModel)]="mensaje.telephone" name="telephone" placeholder="Telefono"
+                    type="number">
+                </div>
+              </div>
+
+              <div class="form-group mb-4">
+                <textarea class="form-control form-control-alternative" [(ngModel)]="mensaje.message" name="message"
+                  rows="4" cols="80" placeholder="Tienes algo para contarnos?..."></textarea>
+              </div>
+
+              <div>
+                <button type="submit" [disabled]="!forma.valid"
+                  class="btn btn-default btn-round btn-block btn-lg">Enviar</button>
+
+              </div>
+            </form>
+          </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

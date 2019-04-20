@@ -1,0 +1,36 @@
+<div class="services texto-borde">
+  <h2 class="text-success services ">Nuestros servicios:</h2>
+
+</div>
+<div class="row">
+
+  <div class="col-lg-12">
+
+    <div class="row row-grid">
+      <div class="col-lg-4 sep" *ngFor="let item of cards">
+
+        <div class="card card-lift--hover shadow border-0">
+          <div class="card-body py-5 carta">
+
+            <div [class]="item.colorIcon">
+              <i [class]="item.icon"> </i>
+              <i [class]="item.icon2"> </i>
+            </div>
+
+            <h3 [class]="item.title">{{item.name}}</h3>
+            <p [class]="item.parrafo">{{item.subname}}</p>
+
+
+
+            <p class="description mt-3">{{item.info}}
+            </p>
+
+
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
