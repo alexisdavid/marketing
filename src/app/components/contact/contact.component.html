@@ -27,8 +27,16 @@
           <div class="card-body p-lg-5">
             <h4 class="mb-1">Contactanos</h4>
             <p class="mt-0">Tu proyecto es importante para nosotros.</p>
-            <div class="alert alert-success" role="alert" *ngIf="enviado">
+            <!-- <div class="alert alert-success" role="alert" *ngIf="enviado">
               <strong>enviado!</strong> nos pondremos en contacto a la brevedad posible!
+            </div> -->
+            <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="enviado">
+              <span class="alert-inner--icon"><i class="ni ni-like-2"></i></span>
+              <span class="alert-inner--text"><strong>mensaje enviado!</strong> nos pondremos en contacto con usted a la
+                brevedad posible!!</span>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
 
             <form (ngSubmit)="sendMessage()" #forma="ngForm">
@@ -38,8 +46,12 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="ni ni-user-run"></i></span>
                   </div>
-                  <input class="form-control" [(ngModel)]="mensaje.name" minlength="5" name="name" placeholder="Nombre"
-                    type="text" required>
+                  <input class="form-control" [(ngModel)]="mensaje.name" minlength="5" #name="ngModel" name="name"
+                    placeholder="Nombre" type="text" required>
+
+                </div>
+                <div class="alert alert-warning" role="alert" *ngIf="name.errors?.minlength">
+                  <strong>invalido!</strong> debe ingresar almenos 5 caracteres!
                 </div>
               </div>
 
@@ -49,8 +61,11 @@
                     <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                   </div>
                   <input class="form-control" [(ngModel)]="mensaje.email"
-                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email" placeholder="Email" type="email"
-                    required>
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" #email="ngModel" name="email" placeholder="Email"
+                    type="email" required>
+                </div>
+                <div class="alert alert-warning" role="alert" *ngIf="email.errors?.pattern">
+                  <strong>invalido!</strong> no cumple con el formato de email!
                 </div>
               </div>
 
