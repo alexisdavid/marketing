@@ -23,7 +23,7 @@ export class FirebaseService {
 
     return this.itemsCollection.valueChanges().pipe(
       map((mensaje: message[]) => {
-        console.log(mensaje);
+        // console.log(mensaje);
 
       })
     );
